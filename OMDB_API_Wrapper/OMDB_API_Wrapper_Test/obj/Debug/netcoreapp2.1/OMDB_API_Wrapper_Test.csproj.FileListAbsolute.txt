@@ -1,0 +1,14 @@
+C:\Users\Mohamed\Documents\GitHub\OMDB_API_Wrapper\OMDB_API_Wrapper\OMDB_API_Wrapper_Test\bin\Debug\netcoreapp2.1\OMDB_API_Wrapper_Test.deps.json
+C:\Users\Mohamed\Documents\GitHub\OMDB_API_Wrapper\OMDB_API_Wrapper\OMDB_API_Wrapper_Test\bin\Debug\netcoreapp2.1\OMDB_API_Wrapper_Test.runtimeconfig.json
+C:\Users\Mohamed\Documents\GitHub\OMDB_API_Wrapper\OMDB_API_Wrapper\OMDB_API_Wrapper_Test\bin\Debug\netcoreapp2.1\OMDB_API_Wrapper_Test.runtimeconfig.dev.json
+C:\Users\Mohamed\Documents\GitHub\OMDB_API_Wrapper\OMDB_API_Wrapper\OMDB_API_Wrapper_Test\bin\Debug\netcoreapp2.1\OMDB_API_Wrapper_Test.dll
+C:\Users\Mohamed\Documents\GitHub\OMDB_API_Wrapper\OMDB_API_Wrapper\OMDB_API_Wrapper_Test\bin\Debug\netcoreapp2.1\OMDB_API_Wrapper_Test.pdb
+C:\Users\Mohamed\Documents\GitHub\OMDB_API_Wrapper\OMDB_API_Wrapper\OMDB_API_Wrapper_Test\obj\Debug\netcoreapp2.1\OMDB_API_Wrapper_Test.csprojAssemblyReference.cache
+C:\Users\Mohamed\Documents\GitHub\OMDB_API_Wrapper\OMDB_API_Wrapper\OMDB_API_Wrapper_Test\obj\Debug\netcoreapp2.1\OMDB_API_Wrapper_Test.csproj.CoreCompileInputs.cache
+C:\Users\Mohamed\Documents\GitHub\OMDB_API_Wrapper\OMDB_API_Wrapper\OMDB_API_Wrapper_Test\obj\Debug\netcoreapp2.1\OMDB_API_Wrapper_Test.AssemblyInfoInputs.cache
+C:\Users\Mohamed\Documents\GitHub\OMDB_API_Wrapper\OMDB_API_Wrapper\OMDB_API_Wrapper_Test\obj\Debug\netcoreapp2.1\OMDB_API_Wrapper_Test.AssemblyInfo.cs
+C:\Users\Mohamed\Documents\GitHub\OMDB_API_Wrapper\OMDB_API_Wrapper\OMDB_API_Wrapper_Test\obj\Debug\netcoreapp2.1\OMDB_API_Wrapper_Test.dll
+C:\Users\Mohamed\Documents\GitHub\OMDB_API_Wrapper\OMDB_API_Wrapper\OMDB_API_Wrapper_Test\obj\Debug\netcoreapp2.1\OMDB_API_Wrapper_Test.pdb
+C:\Users\Mohamed\Documents\GitHub\OMDB_API_Wrapper\OMDB_API_Wrapper\OMDB_API_Wrapper_Test\bin\Debug\netcoreapp2.1\OMDB_API_Wrapper.dll
+C:\Users\Mohamed\Documents\GitHub\OMDB_API_Wrapper\OMDB_API_Wrapper\OMDB_API_Wrapper_Test\bin\Debug\netcoreapp2.1\OMDB_API_Wrapper.pdb
+C:\Users\Mohamed\Documents\GitHub\OMDB_API_Wrapper\OMDB_API_Wrapper\OMDB_API_Wrapper_Test\obj\Debug\netcoreapp2.1\OMDB_API_Wrapper_Test.csproj.CopyComplete

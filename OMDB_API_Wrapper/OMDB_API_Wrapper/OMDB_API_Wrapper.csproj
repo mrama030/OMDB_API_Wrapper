@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Platforms>AnyCPU;x64</Platforms>
+    <Version>1.0</Version>
+    <Authors>Mohamed Ali Ramadan</Authors>
+    <Company />
+    <Description>OMDB_API_Wrapper is a RESTful API wrapper for the Open Movie Database API (http://www.omdbapi.com/). This API wrapper focuses on being simple to use, efficient and respects the terminology used in the OMDB API documentation.</Description>
+    <Copyright>Mohamed Ali Ramadan</Copyright>
+    <PackageLicenseUrl>https://github.com/torben-w/OMDb-API.NET/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/torben-w/OMDb-API.NET</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/torben-w/OMDb-API.NET</RepositoryUrl>
+    <PackageTags>omdb api rest client net movie tv series imdb wrapper database</PackageTags>
+    <PackageId>OMDB_API_Wrapper</PackageId>
+    <Product>OMDB_API_Wrapper</Product>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <PackageReleaseNotes>Initial Release</PackageReleaseNotes>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile></DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
+  </ItemGroup>
+</Project>
