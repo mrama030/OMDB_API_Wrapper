@@ -51,6 +51,8 @@ namespace OMDB_API_Wrapper
         public static readonly string BY_TITLE_PARAM_RESULT_TYPE = "type";
         public static readonly string BY_TITLE_PARAM_YEAR_OF_RELEASE = "y";
         public static readonly string BY_TITLE_PARAM_PLOT_LENGTH = "plot";
+        public static readonly string BY_TITLE_PARAM_SEASON = "Season";
+        public static readonly string BY_TITLE_PARAM_EPISODE = "Episode";
 
         // Parameters for "By Search" requests:
         public static readonly string BY_SEARCH_PARAM_TITLE = "s";
@@ -101,6 +103,16 @@ namespace OMDB_API_Wrapper
             if (request.Year.HasValue)
             {
                 parameters += "&" + BY_TITLE_PARAM_YEAR_OF_RELEASE + "=" + request.Year.ToString();
+            }
+
+            if (request.Season.HasValue)
+            {
+                parameters += "&" + BY_TITLE_PARAM_SEASON + "=" + request.Season.ToString();
+
+                if (request.Episode.HasValue)
+                {
+                    parameters += "&" + BY_TITLE_PARAM_EPISODE + "=" + request.Episode.ToString();
+                }  
             }
 
             parameters += "&" + BY_TITLE_PARAM_PLOT_LENGTH + "=" + request.PlotSize.ToString().ToLower();

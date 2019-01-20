@@ -8,6 +8,12 @@ namespace OMDB_API_Wrapper.Models.API_Responses
         [JsonProperty("Title")]
         public string Title;
 
+        [JsonProperty("totalSeasons")]
+        public uint? TotalSeasons;
+
+        [JsonProperty("Episodes")]
+        public List<Episode> EpisodeList;
+
         [JsonProperty("Year")]
         public string Year;
 
@@ -16,6 +22,12 @@ namespace OMDB_API_Wrapper.Models.API_Responses
 
         [JsonProperty("Released")]
         public string ReleaseDate;
+
+        [JsonProperty("Season")]
+        public uint? SeasonNumber;
+
+        [JsonProperty("Episode")]
+        public uint? EpisodeNumber;
 
         [JsonProperty("Runtime")]
         public string Runtime;
@@ -56,6 +68,9 @@ namespace OMDB_API_Wrapper.Models.API_Responses
         [JsonProperty("imdbRating")]
         public float? IMDB_Rating;
 
+        [JsonProperty("imdbVotes")]
+        public uint? IMDB_Votes;
+
         [JsonProperty("imdbID")]
         public string IMDB_ID;
 
@@ -84,6 +99,24 @@ namespace OMDB_API_Wrapper.Models.API_Responses
 
             [JsonProperty("Value")]
             public string Value;
+        }
+
+        public class Episode
+        {
+            [JsonProperty("Title")]
+            public string Title;
+
+            [JsonProperty("Released")]
+            public string ReleaseDate;
+
+            [JsonProperty("Episode")]
+            public uint? EpisodeNumber;
+
+            [JsonProperty("imdbRating")]
+            public float? IMDB_Rating;
+
+            [JsonProperty("imdbID")]
+            public string IMDB_ID;
         }
     }
 }
