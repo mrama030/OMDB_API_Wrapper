@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.28307.168
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OMDB_API_Wrapper", "OMDB_API_Wrapper\OMDB_API_Wrapper.csproj", "{36CDB25C-2920-4A2A-A2FE-3F5810C634F2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OMDB_API_Wrapper_Test", "OMDB_API_Wrapper_Test\OMDB_API_Wrapper_Test.csproj", "{FB46A8B9-F908-4374-B411-F33FEA896B05}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OMDB_API_Wrapper_Demo", "OMDB_API_Wrapper_Test\OMDB_API_Wrapper_Demo.csproj", "{FB46A8B9-F908-4374-B411-F33FEA896B05}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

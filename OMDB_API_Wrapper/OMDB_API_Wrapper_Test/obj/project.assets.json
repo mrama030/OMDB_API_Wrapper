@@ -761,9 +761,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Mohamed\\Documents\\GitHub\\OMDB_API_Wrapper\\OMDB_API_Wrapper\\OMDB_API_Wrapper_Test\\OMDB_API_Wrapper_Test.csproj",
-      "projectName": "OMDB_API_Wrapper_Test",
-      "projectPath": "C:\\Users\\Mohamed\\Documents\\GitHub\\OMDB_API_Wrapper\\OMDB_API_Wrapper\\OMDB_API_Wrapper_Test\\OMDB_API_Wrapper_Test.csproj",
+      "projectUniqueName": "C:\\Users\\Mohamed\\Documents\\GitHub\\OMDB_API_Wrapper\\OMDB_API_Wrapper\\OMDB_API_Wrapper_Test\\OMDB_API_Wrapper_Demo.csproj",
+      "projectName": "OMDB_API_Wrapper_Demo",
+      "projectPath": "C:\\Users\\Mohamed\\Documents\\GitHub\\OMDB_API_Wrapper\\OMDB_API_Wrapper\\OMDB_API_Wrapper_Test\\OMDB_API_Wrapper_Demo.csproj",
       "packagesPath": "C:\\Users\\Mohamed\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Mohamed\\Documents\\GitHub\\OMDB_API_Wrapper\\OMDB_API_Wrapper\\OMDB_API_Wrapper_Test\\obj\\",
       "projectStyle": "PackageReference",

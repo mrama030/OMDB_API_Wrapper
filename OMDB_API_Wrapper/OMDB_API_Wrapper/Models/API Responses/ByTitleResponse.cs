@@ -1,4 +1,24 @@
-﻿using Newtonsoft.Json;
+﻿/*
+    OMDB API Wrapper - For all .NET projects (https://docs.microsoft.com/en-us/dotnet/standard/net-standard).
+    --------------------------------------------------------------------------------
+    Original Author: Mohamed Ali Ramadan (mrama030)
+    Available from: https://github.com/mrama030
+    Framework Used: .NET Standard 2.0
+    Last Modification Date [yyyy-mm-dd]: 2019-01-23
+    --------------------------------------------------------------------------------
+    Description:
+    This is an easy to use RESTful API wrapper for the Open Movie Database API available from: http://www.omdbapi.com/
+    It allows using creating an OMDB client and performing HTTP GET requests of the three
+    types identified in the OMDB API documentation: "By Title", "By ID" and "By Search".
+
+    Instructions:
+    1. Get your OMDB API Key from http://www.omdbapi.com/
+    2. Install OMDB_API_Wrapper for your project.
+    3. Install the following dependencies (Nuget packages) to your project:
+        - Newtonsoft.Json (v12.0.1)
+*/
+
+using Newtonsoft.Json;
 using System.Collections.Generic;
 
 namespace OMDB_API_Wrapper.Models.API_Responses
@@ -9,7 +29,7 @@ namespace OMDB_API_Wrapper.Models.API_Responses
         public string Title;
 
         [JsonProperty("totalSeasons")]
-        public uint? TotalSeasons;
+        public string TotalSeasons;
 
         [JsonProperty("Episodes")]
         public List<Episode> EpisodeList;
@@ -24,10 +44,10 @@ namespace OMDB_API_Wrapper.Models.API_Responses
         public string ReleaseDate;
 
         [JsonProperty("Season")]
-        public uint? SeasonNumber;
+        public string SeasonNumber;
 
         [JsonProperty("Episode")]
-        public uint? EpisodeNumber;
+        public string EpisodeNumber;
 
         [JsonProperty("Runtime")]
         public string Runtime;
@@ -63,16 +83,19 @@ namespace OMDB_API_Wrapper.Models.API_Responses
         public List<Rating> RatingsList;
 
         [JsonProperty("Metascore")]
-        public uint? Metascore;
+        public string Metascore;
 
         [JsonProperty("imdbRating")]
-        public float? IMDB_Rating;
+        public string IMDB_Rating;
 
         [JsonProperty("imdbVotes")]
-        public uint? IMDB_Votes;
+        public string IMDB_Votes;
 
         [JsonProperty("imdbID")]
         public string IMDB_ID;
+
+        [JsonProperty("seriesID")]
+        public string Series_ID;
 
         [JsonProperty("Type")]
         public string Type;
@@ -110,10 +133,10 @@ namespace OMDB_API_Wrapper.Models.API_Responses
             public string ReleaseDate;
 
             [JsonProperty("Episode")]
-            public uint? EpisodeNumber;
+            public string EpisodeNumber;
 
             [JsonProperty("imdbRating")]
-            public float? IMDB_Rating;
+            public string IMDB_Rating;
 
             [JsonProperty("imdbID")]
             public string IMDB_ID;

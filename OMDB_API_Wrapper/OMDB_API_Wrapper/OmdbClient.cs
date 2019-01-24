@@ -4,7 +4,7 @@
     Original Author: Mohamed Ali Ramadan (mrama030)
     Available from: https://github.com/mrama030
     Framework Used: .NET Standard 2.0
-    Last Modification Date [yyyy-mm-dd]: 2019-01-18
+    Last Modification Date [yyyy-mm-dd]: 2019-01-23
     --------------------------------------------------------------------------------
     Description:
     This is an easy to use RESTful API wrapper for the Open Movie Database API available from: http://www.omdbapi.com/
@@ -13,15 +13,14 @@
 
     Instructions:
     1. Get your OMDB API Key from http://www.omdbapi.com/
-    2. Install OMDB_API_Wrapper for your project.
-    3. Install the following dependencies (Nuget packages) to your project:
+    2. Install the OMDB_API_Wrapper (Nuget package) for your project.
+    3. Install the following dependencies (Nuget packages) to your project if not automatically installed:
         - Newtonsoft.Json (v12.0.1)
 */
 
 using System;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using OMDB_API_Wrapper.Models;
@@ -89,70 +88,70 @@ namespace OMDB_API_Wrapper
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
-        private string GenerateByTitleRequestParameters(ByTitleRequest request)
+        private string GenerateByTitleRequestParameters(ByTitleRequest byTitleRequest)
         {
             string parameters = "?apikey=" + this.OMDB_API_Key;
 
-            parameters += "&" + BY_TITLE_PARAM_TITLE + "=" + request.Title.ToLower().Trim();
+            parameters += "&" + BY_TITLE_PARAM_TITLE + "=" + byTitleRequest.Title.ToLower().Trim();
 
-            if (request.VideoType.HasValue)
+            if (byTitleRequest.VideoType.HasValue)
             {
-                parameters += "&" + BY_TITLE_PARAM_RESULT_TYPE + "=" + request.VideoType.ToString().ToLower();
+                parameters += "&" + BY_TITLE_PARAM_RESULT_TYPE + "=" + byTitleRequest.VideoType.ToString().ToLower();
             }
 
-            if (request.Year.HasValue)
+            if (byTitleRequest.Year.HasValue)
             {
-                parameters += "&" + BY_TITLE_PARAM_YEAR_OF_RELEASE + "=" + request.Year.ToString();
+                parameters += "&" + BY_TITLE_PARAM_YEAR_OF_RELEASE + "=" + byTitleRequest.Year.ToString();
             }
 
-            if (request.Season.HasValue)
+            if (byTitleRequest.Season.HasValue)
             {
-                parameters += "&" + BY_TITLE_PARAM_SEASON + "=" + request.Season.ToString();
+                parameters += "&" + BY_TITLE_PARAM_SEASON + "=" + byTitleRequest.Season.ToString();
 
-                if (request.Episode.HasValue)
+                if (byTitleRequest.Episode.HasValue)
                 {
-                    parameters += "&" + BY_TITLE_PARAM_EPISODE + "=" + request.Episode.ToString();
+                    parameters += "&" + BY_TITLE_PARAM_EPISODE + "=" + byTitleRequest.Episode.ToString();
                 }  
             }
 
-            parameters += "&" + BY_TITLE_PARAM_PLOT_LENGTH + "=" + request.PlotSize.ToString().ToLower();
+            parameters += "&" + BY_TITLE_PARAM_PLOT_LENGTH + "=" + byTitleRequest.PlotSize.ToString().ToLower();
 
             parameters += "&" + PARAM_RESPONSE_DATA_TYPE;
 
             return parameters;
         }
 
-        private string GenerateBySearchRequestParameters(BySearchRequest request)
+        private string GenerateBySearchRequestParameters(BySearchRequest bySearchRequest)
         {
             string parameters = "?apikey=" + this.OMDB_API_Key;
                 
-            parameters += "&" + BY_SEARCH_PARAM_TITLE + "=" + request.Title.ToLower().Trim();
+            parameters += "&" + BY_SEARCH_PARAM_TITLE + "=" + bySearchRequest.Title.ToLower().Trim();
 
-            if (request.VideoType.HasValue)
+            if (bySearchRequest.VideoType.HasValue)
             {
-                parameters += "&" + BY_SEARCH_PARAM_RESULT_TYPE + "=" + request.VideoType.ToString().ToLower();
+                parameters += "&" + BY_SEARCH_PARAM_RESULT_TYPE + "=" + bySearchRequest.VideoType.ToString().ToLower();
             }
 
-            if (request.Year.HasValue)
+            if (bySearchRequest.Year.HasValue)
             {
-                parameters += "&" + BY_SEARCH_PARAM_YEAR_OF_RELEASE + "=" + request.Year.ToString();
+                parameters += "&" + BY_SEARCH_PARAM_YEAR_OF_RELEASE + "=" + bySearchRequest.Year.ToString();
             }
 
             parameters += "&" + PARAM_RESPONSE_DATA_TYPE;
 
-            if (request.Page.HasValue)
+            if (bySearchRequest.Page.HasValue)
             {
-                parameters += "&" + BY_SEARCH_PARAM_RESULT_PAGE + "=" + request.Page.ToString();
+                parameters += "&" + BY_SEARCH_PARAM_RESULT_PAGE + "=" + bySearchRequest.Page.ToString();
             }
 
             return parameters;
         }
 
-        private string GenerateByIDRequestParameters(string imdb_id)
+        private string GenerateByIDRequestParameters(ByIDRequest byIDRequest)
         {
             string parameters = "?apikey=" + this.OMDB_API_Key;
 
-            parameters += "&" + BY_ID_PARAM_IMDB_ID + "=" + imdb_id;
+            parameters += "&" + BY_ID_PARAM_IMDB_ID + "=" + byIDRequest.IMDB_ID;
 
             parameters += "&" + PARAM_RESPONSE_DATA_TYPE;
 
@@ -163,17 +162,24 @@ namespace OMDB_API_Wrapper
 
         #region Public Methods
 
-        public async Task<bool> TestAPIKey()
+        public async Task<bool> IsAPIKeyValid()
         {
-            ByTitleRequest request = new ByTitleRequest("ghost in the shell", VideoType.Movie, 1995, PlotSize.Short);
-            ByTitleResponse response = await ByTitleRequestAsync(request);
-            return response.Response;
+            ByTitleRequest byTitleRequest = new ByTitleRequest("ghost in the shell", VideoType.Movie, 1995, PlotSize.Short);
+            string parameters = GenerateByTitleRequestParameters(byTitleRequest);
+            HttpResponseMessage response = await client.GetAsync(parameters);
+
+            if (response.IsSuccessStatusCode)
+            {
+                return true;
+            }
+
+            return false;
         }
 
-        public async Task<ByTitleResponse> ByTitleRequestAsync(ByTitleRequest request)
+        public async Task<ByTitleResponse> ByTitleRequestAsync(ByTitleRequest byTitleRequest)
         {
             ByTitleResponse title = null;
-            string parameters = GenerateByTitleRequestParameters(request);
+            string parameters = GenerateByTitleRequestParameters(byTitleRequest);
 
             HttpResponseMessage response = await client.GetAsync(parameters);
 
@@ -186,10 +192,10 @@ namespace OMDB_API_Wrapper
             return title;
         }
 
-        public async Task<ByTitleResponse> ByIDRequestAsync(string imdb_id)
+        public async Task<ByTitleResponse> ByIDRequestAsync(ByIDRequest byIDRequest)
         {
             ByTitleResponse title = null;
-            string parameters = GenerateByIDRequestParameters(imdb_id);
+            string parameters = GenerateByIDRequestParameters(byIDRequest);
 
             HttpResponseMessage response = await client.GetAsync(parameters);
 
@@ -202,28 +208,29 @@ namespace OMDB_API_Wrapper
             return title;
         }
 
-        public async Task<BySearchResponse> BySearchRequestAsync(BySearchRequest request)
+        public async Task<BySearchResponse> BySearchRequestAsync(BySearchRequest bySearchRequest)
         {
-            BySearchResponse searchResults = null;
-            string parameters = GenerateBySearchRequestParameters(request);
+            BySearchResponse bySearchResponse = null;
+            string parameters = GenerateBySearchRequestParameters(bySearchRequest);
 
             HttpResponseMessage response = await client.GetAsync(parameters);
 
             if (response.IsSuccessStatusCode)
             {
                 string jsonContent = await response.Content.ReadAsStringAsync();
-                searchResults = JsonConvert.DeserializeObject<BySearchResponse>(jsonContent);
+                bySearchResponse = JsonConvert.DeserializeObject<BySearchResponse>(jsonContent);
             }
 
-            if (request.Page.HasValue == false && searchResults.TotalResults > RESULT_ITEMS_PER_BY_SEARCH_REQUEST) 
+            // If no page number was specified, process all pages (if more than one is found).
+            if (bySearchRequest.Page.HasValue == false && bySearchResponse.TotalResults > RESULT_ITEMS_PER_BY_SEARCH_REQUEST) 
             {
                 uint searchResultsProcessed = RESULT_ITEMS_PER_BY_SEARCH_REQUEST;
                 uint pagesProcessed = 1;
 
-                while (searchResultsProcessed < searchResults.TotalResults)
+                while (searchResultsProcessed < bySearchResponse.TotalResults)
                 {
                     BySearchResponse additional_results = null;
-                    BySearchRequest additional_request = new BySearchRequest(request.Title, request.VideoType, request.Year, ++pagesProcessed);
+                    BySearchRequest additional_request = new BySearchRequest(bySearchRequest.Title, bySearchRequest.VideoType, bySearchRequest.Year, ++pagesProcessed);
                     string parameters_additional_request = GenerateBySearchRequestParameters(additional_request);
 
                     HttpResponseMessage additional_response = await client.GetAsync(parameters_additional_request);
@@ -235,7 +242,7 @@ namespace OMDB_API_Wrapper
 
                         foreach(BySearchResponse.SearchResultItem resultItem in additional_results.SearchResults)
                         {
-                            searchResults.SearchResults.Add(resultItem);
+                            bySearchResponse.SearchResults.Add(resultItem);
                         }
 
                         searchResultsProcessed += (uint)additional_results.SearchResults.Count;
@@ -243,7 +250,7 @@ namespace OMDB_API_Wrapper
                 }
             }
 
-            return searchResults;
+            return bySearchResponse;
         }
 
         #endregion
