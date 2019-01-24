@@ -2,14 +2,14 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <Platforms>AnyCPU;x64</Platforms>
-    <Version>1.0</Version>
+    <Version>1.0.0</Version>
     <Authors>Mohamed Ali Ramadan</Authors>
     <Company />
     <Description>OMDB_API_Wrapper is a RESTful API wrapper for the Open Movie Database API (http://www.omdbapi.com/). This API wrapper focuses on being simple to use, efficient and respects the terminology used in the OMDB API documentation.</Description>
     <Copyright>Mohamed Ali Ramadan</Copyright>
-    <PackageLicenseUrl>https://github.com/torben-w/OMDb-API.NET/blob/master/LICENSE</PackageLicenseUrl>
-    <PackageProjectUrl>https://github.com/torben-w/OMDb-API.NET</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/torben-w/OMDb-API.NET</RepositoryUrl>
+    <PackageLicenseUrl></PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/mrama030/OMDB_API_Wrapper</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/mrama030/OMDB_API_Wrapper</RepositoryUrl>
     <PackageTags>omdb api rest client net movie tv series imdb wrapper database</PackageTags>
     <PackageId>OMDB_API_Wrapper</PackageId>
     <Product>OMDB_API_Wrapper</Product>

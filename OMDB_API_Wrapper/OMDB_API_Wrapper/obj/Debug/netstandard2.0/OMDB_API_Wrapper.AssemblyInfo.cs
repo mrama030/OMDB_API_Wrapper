@@ -18,7 +18,7 @@ using System.Reflection;
     "/www.omdbapi.com/). This API wrapper focuses on being simple to use, efficient a" +
     "nd respects the terminology used in the OMDB API documentation.")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
 [assembly: System.Reflection.AssemblyProductAttribute("OMDB_API_Wrapper")]
 [assembly: System.Reflection.AssemblyTitleAttribute("OMDB_API_Wrapper")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
