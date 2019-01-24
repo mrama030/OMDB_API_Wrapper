@@ -1,3 +1,5 @@
 # OMDB_API_Wrapper
 
-Version 1.0 currently in progress.
+Current Release: Version 1.0.0
+
+
