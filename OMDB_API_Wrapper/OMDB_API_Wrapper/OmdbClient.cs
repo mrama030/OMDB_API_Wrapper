@@ -4,7 +4,6 @@
     Original Author: Mohamed Ali Ramadan (mrama030)
     Available from: https://github.com/mrama030
     Framework Used: .NET Standard 2.0
-    Last Modification Date [yyyy-mm-dd]: 2019-01-23
     --------------------------------------------------------------------------------
     Description:
     This is an easy to use RESTful API wrapper for the Open Movie Database API available from: http://www.omdbapi.com/
@@ -29,6 +28,9 @@ using OMDB_API_Wrapper.Models.API_Requests;
 
 namespace OMDB_API_Wrapper
 {
+    /// <summary>
+    /// Client for the OMDB API. Required for performing requests to the OMDB API.
+    /// </summary>
     public class OmdbClient
     {
         #region Contants
@@ -44,6 +46,7 @@ namespace OMDB_API_Wrapper
 
         // Parameter for "By ID" requests:
         public static readonly string BY_ID_PARAM_IMDB_ID = "i";
+        public static readonly string BY_ID_PARAM_PLOT_LENGTH = "plot";
 
         // Parameters for "By Title" requests:
         public static readonly string BY_TITLE_PARAM_TITLE = "t";
@@ -70,6 +73,10 @@ namespace OMDB_API_Wrapper
 
         #region Constructor
 
+        /// <summary>
+        /// Creates an OMDB API Client by specifying an OMDB API Key. Validity of API Key should be tested after creation.
+        /// </summary>
+        /// <param name="omdb_api_key">API Key for the OMDB API.</param>
         public OmdbClient(string omdb_api_key) 
         {
             OMDB_API_Key = omdb_api_key;
@@ -153,6 +160,8 @@ namespace OMDB_API_Wrapper
 
             parameters += "&" + BY_ID_PARAM_IMDB_ID + "=" + byIDRequest.IMDB_ID;
 
+            parameters += "&" + BY_ID_PARAM_PLOT_LENGTH + "=" + byIDRequest.PlotSize.ToString().ToLower();
+
             parameters += "&" + PARAM_RESPONSE_DATA_TYPE;
 
             return parameters;
@@ -160,11 +169,15 @@ namespace OMDB_API_Wrapper
 
         #endregion
 
-        #region Public Methods
+        #region Asynchronous Public Methods
 
-        public async Task<bool> IsAPIKeyValid()
+        /// <summary>
+        /// Tests the validity of the API Key asynchronously.
+        /// </summary>
+        /// <returns>TRUE if OMDB API Key is valid and HTTP Response code is Success. False if specified key generates an HTTP Unauthorized code.</returns>
+        public async Task<bool> IsAPIKeyValidAsync()
         {
-            ByTitleRequest byTitleRequest = new ByTitleRequest("ghost in the shell", VideoType.Movie, 1995, PlotSize.Short);
+            ByTitleRequest byTitleRequest = new ByTitleRequest("ghost in the shell", VideoType.Movie, 1995);
             string parameters = GenerateByTitleRequestParameters(byTitleRequest);
             HttpResponseMessage response = await client.GetAsync(parameters);
 
@@ -176,6 +189,11 @@ namespace OMDB_API_Wrapper
             return false;
         }
 
+        /// <summary>
+        /// Performs a ByTitleRequest asynchronously.
+        /// </summary>
+        /// <param name="byTitleRequest">Requires a ByTitleRequest object that will be used to specify GET request parameters.</param>
+        /// <returns>A ByTitleResponse object.</returns>
         public async Task<ByTitleResponse> ByTitleRequestAsync(ByTitleRequest byTitleRequest)
         {
             ByTitleResponse title = null;
@@ -192,6 +210,11 @@ namespace OMDB_API_Wrapper
             return title;
         }
 
+        /// <summary>
+        /// Performs a ByIDRequest asynchronously.
+        /// </summary>
+        /// <param name="byIDRequest">Requires a ByIDRequest object that will be used to specify GET request parameters.</param>
+        /// <returns>A ByTitleResponse object.</returns>
         public async Task<ByTitleResponse> ByIDRequestAsync(ByIDRequest byIDRequest)
         {
             ByTitleResponse title = null;
@@ -208,6 +231,11 @@ namespace OMDB_API_Wrapper
             return title;
         }
 
+        /// <summary>
+        /// Performs a BySearchRequest asynchronously.
+        /// </summary>
+        /// <param name="bySearchRequest">Requires a BySearchRequest object that will be used to specify GET request parameters.</param>
+        /// <returns>A BySearchResponse object.</returns>
         public async Task<BySearchResponse> BySearchRequestAsync(BySearchRequest bySearchRequest)
         {
             BySearchResponse bySearchResponse = null;
@@ -251,6 +279,49 @@ namespace OMDB_API_Wrapper
             }
 
             return bySearchResponse;
+        }
+
+        #endregion
+
+        #region Synchronous Public Methods
+
+        /// <summary>
+        /// Tests the validity of the API Key synchronously.
+        /// </summary>
+        /// <returns>TRUE if OMDB API Key is valid and HTTP Response code is Success. False if specified key generates an HTTP Unauthorized code.</returns>
+        public bool IsAPIKeyValidSync()
+        {
+            return IsAPIKeyValidAsync().GetAwaiter().GetResult();
+        }
+
+        /// <summary>
+        /// Performs a ByTitleRequest synchronously.
+        /// </summary>
+        /// <param name="byTitleRequest">Requires a ByTitleRequest object that will be used to specify GET request parameters.</param>
+        /// <returns>A ByTitleResponse object.</returns>
+        public ByTitleResponse ByTitleRequestSync(ByTitleRequest byTitleRequest)
+        {
+            return ByTitleRequestAsync(byTitleRequest).GetAwaiter().GetResult();
+        }
+
+        /// <summary>
+        /// Performs a ByIDRequest synchronously.
+        /// </summary>
+        /// <param name="byIDRequest">Requires a ByIDRequest object that will be used to specify GET request parameters.</param>
+        /// <returns>A ByTitleResponse object.</returns>
+        public ByTitleResponse ByIDRequestSync(ByIDRequest byIDRequest)
+        {
+            return ByIDRequestAsync(byIDRequest).GetAwaiter().GetResult();
+        }
+
+        /// <summary>
+        /// Performs a BySearchRequest synchronously.
+        /// </summary>
+        /// <param name="bySearchRequest">Requires a BySearchRequest object that will be used to specify GET request parameters.</param>
+        /// <returns>A BySearchResponse object.</returns>
+        public BySearchResponse BySearchRequestSync(BySearchRequest bySearchRequest)
+        {
+            return BySearchRequestAsync(bySearchRequest).GetAwaiter().GetResult();
         }
 
         #endregion

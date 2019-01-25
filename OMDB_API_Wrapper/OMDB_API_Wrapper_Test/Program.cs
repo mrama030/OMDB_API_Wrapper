@@ -43,7 +43,7 @@ namespace OMDB_API_Wrapper_Demo
             OmdbClient omdbClient = new OmdbClient(omdb_api_key);
 
             // Verify if the API Key is valid.
-            bool isKeyValid = await omdbClient.IsAPIKeyValid();
+            bool isKeyValid = await omdbClient.IsAPIKeyValidAsync();
 
             while (isKeyValid == false)
             {
@@ -51,7 +51,7 @@ namespace OMDB_API_Wrapper_Demo
                 omdb_api_key = Console.ReadLine();
 
                 omdbClient = new OmdbClient(omdb_api_key);
-                isKeyValid = omdbClient.IsAPIKeyValid().GetAwaiter().GetResult();
+                isKeyValid = omdbClient.IsAPIKeyValidSync();
 
                 if (isKeyValid == false)
                 {
@@ -68,7 +68,7 @@ namespace OMDB_API_Wrapper_Demo
             Console.WriteLine("Here is a demo for requesting a ByTitleRequest:\n");
 
             // Create a ByTitleRequest.
-            ByTitleRequest byTitleRequest = new ByTitleRequest("rick and morty", VideoType.Series);
+            ByTitleRequest byTitleRequest = new ByTitleRequest("rick and morty", VideoType.Series, null, PlotSize.Full);
 
             // Obtain a ByTitleResponse for the ByTitleRequest asynchronously.
             ByTitleResponse byTitleResponse = await omdbClient.ByTitleRequestAsync(byTitleRequest);
@@ -93,7 +93,7 @@ namespace OMDB_API_Wrapper_Demo
             Console.WriteLine("Here is a demo for requesting a ByIDRequest:\n");
 
             // Create a ByIDRequest.
-            ByIDRequest byIDRequest = new ByIDRequest("tt1219827");
+            ByIDRequest byIDRequest = new ByIDRequest("tt1219827", PlotSize.Full);
 
             // Obtain a ByTitleResponse for the ByIDRequest asynchronously.
             ByTitleResponse byTitleResponseForIDRequest = await omdbClient.ByIDRequestAsync(byIDRequest);

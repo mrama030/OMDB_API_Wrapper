@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace OMDB_API_Wrapper.Models.API_Responses
 {
+    /// <summary>
+    /// JSON-deserialized object received in response to a ByTitleRequest or ByIDRequest.
+    /// </summary>
     public class ByTitleResponse
     {
         [JsonProperty("Title")]
