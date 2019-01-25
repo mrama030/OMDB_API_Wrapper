@@ -1,12 +1,12 @@
 # OMDB_API_Wrapper
 
-### Current Release: Version 1.0.0
+### Current Release: Version 1.1.0
 
 ### Description
 TODO
 
 ### Technical Information
-- Download the NuGet Package here: https://github.com/mrama030/OMDB_API_Wrapper/tree/master/OMDB_API_Wrapper/OMDB_API_Wrapper/bin/Debug/OMDB_API_Wrapper.1.0.0.nupkg
+- Download the NuGet Package here: https://github.com/mrama030/OMDB_API_Wrapper/tree/master/OMDB_API_Wrapper/OMDB_API_Wrapper/bin/Debug/OMDB_API_Wrapper.1.1.0.nupkg
 
 - Download the DLL library here: https://github.com/mrama030/OMDB_API_Wrapper/tree/master/OMDB_API_Wrapper/OMDB_API_Wrapper/bin/Debug/netstandard2.0/OMDB_API_Wrapper.dll
 
