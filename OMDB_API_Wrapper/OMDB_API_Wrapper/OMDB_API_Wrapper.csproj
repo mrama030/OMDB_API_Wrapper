@@ -2,7 +2,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <Platforms>AnyCPU;x64</Platforms>
-    <Version>1.1.0</Version>
+    <Version>1.1.1</Version>
     <Authors>Mohamed Ali Ramadan</Authors>
     <Company />
     <Description>OMDB_API_Wrapper is a RESTful API wrapper for the Open Movie Database API (http://www.omdbapi.com/). This API wrapper focuses on being simple to use, efficient and respects the terminology used in the OMDB API documentation.</Description>

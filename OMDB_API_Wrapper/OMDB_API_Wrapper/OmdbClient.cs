@@ -90,7 +90,7 @@ namespace OMDB_API_Wrapper
         private void SetupHttpClient()
         {
             client = new HttpClient();
-            client.BaseAddress = new Uri($"http://www.omdbapi.com/?apikey={this.OMDB_API_Key}&");
+            client.BaseAddress = new Uri($"http://www.omdbapi.com/");
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
@@ -144,12 +144,12 @@ namespace OMDB_API_Wrapper
                 parameters += "&" + BY_SEARCH_PARAM_YEAR_OF_RELEASE + "=" + bySearchRequest.Year.ToString();
             }
 
-            parameters += "&" + PARAM_RESPONSE_DATA_TYPE;
-
             if (bySearchRequest.Page.HasValue)
             {
                 parameters += "&" + BY_SEARCH_PARAM_RESULT_PAGE + "=" + bySearchRequest.Page.ToString();
             }
+
+            parameters += "&" + PARAM_RESPONSE_DATA_TYPE;
 
             return parameters;
         }
@@ -180,13 +180,7 @@ namespace OMDB_API_Wrapper
             ByTitleRequest byTitleRequest = new ByTitleRequest("ghost in the shell", VideoType.Movie, 1995);
             string parameters = GenerateByTitleRequestParameters(byTitleRequest);
             HttpResponseMessage response = await client.GetAsync(parameters);
-
-            if (response.IsSuccessStatusCode)
-            {
-                return true;
-            }
-
-            return false;
+            return response.IsSuccessStatusCode;
         }
 
         /// <summary>
@@ -206,7 +200,11 @@ namespace OMDB_API_Wrapper
                 string jsonContent = await response.Content.ReadAsStringAsync();
                 title = JsonConvert.DeserializeObject<ByTitleResponse>(jsonContent);
             }
-
+            else
+            {
+                throw new HttpRequestException($"ByTitleRequest was unsuccessful with HTTP status code {response.StatusCode.ToString()}");
+            }
+          
             return title;
         }
 
@@ -226,6 +224,10 @@ namespace OMDB_API_Wrapper
             {
                 string jsonContent = await response.Content.ReadAsStringAsync();
                 title = JsonConvert.DeserializeObject<ByTitleResponse>(jsonContent);
+            }
+            else
+            {
+                throw new HttpRequestException($"ByIDRequest was unsuccessful with HTTP status code {response.StatusCode.ToString()}");
             }
 
             return title;
@@ -247,6 +249,10 @@ namespace OMDB_API_Wrapper
             {
                 string jsonContent = await response.Content.ReadAsStringAsync();
                 bySearchResponse = JsonConvert.DeserializeObject<BySearchResponse>(jsonContent);
+            }
+            else
+            {
+                throw new HttpRequestException($"BySearchRequest was unsuccessful with HTTP status code {response.StatusCode.ToString()}");
             }
 
             // If no page number was specified, process all pages (if more than one is found).
@@ -274,6 +280,10 @@ namespace OMDB_API_Wrapper
                         }
 
                         searchResultsProcessed += (uint)additional_results.SearchResults.Count;
+                    }
+                    else
+                    {
+                        throw new HttpRequestException($"BySearchRequest was unsuccessful with HTTP status code {response.StatusCode.ToString()}");
                     }
                 }
             }

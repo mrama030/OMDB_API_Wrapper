@@ -11,7 +11,7 @@
         public uint? Page { get; }
 
         /// <summary>
-        /// Create a BySearchRequest by specifying the title (or partial title) of the movie/series/episode in question. Other parameters are optional.
+        /// Creates a BySearchRequest used to obtain all items matching the specified title or partial title of the movie/series/episode.
         /// </summary>
         /// <param name="title">The title (or partial title) of the item(s) to be searched for.</param>
         /// <param name="videoType">Apply a filter for the video type (movie, tv series, episode).</param>

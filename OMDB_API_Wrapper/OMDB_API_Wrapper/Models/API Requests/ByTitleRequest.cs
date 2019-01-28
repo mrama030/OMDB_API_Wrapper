@@ -13,7 +13,7 @@
         public PlotSize PlotSize { get; }
 
         /// <summary>
-        /// Create a ByTitleRequest to obtain information regarding a Movie, TV Series, or TV Series Episode by specifying its exact title.
+        /// Creates a ByTitleRequest used to obtain information regarding a Movie, TV Series, or TV Series Episode by specifying its exact title.
         /// </summary>
         /// <param name="title">The exact title of the item to be searched for.</param>
         /// <param name="videoType">>Apply a filter for the video type (movie, tv series, episode).</param>
@@ -28,7 +28,7 @@
         }
 
         /// <summary>
-        /// Create a ByTitleRequest to obtain information regarding TV Series Season or TV Series Episode, by specifying its exact title and season number.
+        /// Creates a ByTitleRequest used to obtain information regarding TV Series Season or TV Series Episode, by specifying its exact title and season number.
         /// </summary>
         /// <param name="title">The exact title of the TV Series Season or TV Series Episode to be searched for.</param>
         /// <param name="season">The season number of the TV Series Season or TV Series Episode.</param>
