@@ -8,7 +8,7 @@
     ".NETCoreApp,Version=v2.1": {
       "OMDB_API_Wrapper_Demo/1.0.0": {
         "dependencies": {
-          "OMDB_API_Wrapper": "1.1.1"
+          "OMDB_API_Wrapper": "1.1.2"
         },
         "runtime": {
           "OMDB_API_Wrapper_Demo.dll": {}
@@ -22,7 +22,7 @@
           }
         }
       },
-      "OMDB_API_Wrapper/1.1.1": {
+      "OMDB_API_Wrapper/1.1.2": {
         "dependencies": {
           "Newtonsoft.Json": "12.0.1"
         },
@@ -45,7 +45,7 @@
       "path": "newtonsoft.json/12.0.1",
       "hashPath": "newtonsoft.json.12.0.1.nupkg.sha512"
     },
-    "OMDB_API_Wrapper/1.1.1": {
+    "OMDB_API_Wrapper/1.1.2": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

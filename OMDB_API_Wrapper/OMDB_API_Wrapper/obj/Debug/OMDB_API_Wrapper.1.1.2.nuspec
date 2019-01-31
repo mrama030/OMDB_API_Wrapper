@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>OMDB_API_Wrapper</id>
+    <version>1.1.2</version>
+    <authors>Mohamed Ali Ramadan</authors>
+    <owners>Mohamed Ali Ramadan</owners>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <licenseUrl>https://github.com/mrama030/OMDB_API_Wrapper/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/mrama030/OMDB_API_Wrapper</projectUrl>
+    <description>OMDB_API_Wrapper is a RESTful API wrapper for the Open Movie Database API (http://www.omdbapi.com/). This API wrapper focuses on being simple to use, efficient and respects the terminology used in the OMDB API documentation.</description>
+    <releaseNotes>Added MIT License</releaseNotes>
+    <copyright>Mohamed Ali Ramadan</copyright>
+    <tags>omdb api rest client net movie tv series imdb wrapper database</tags>
+    <repository url="https://github.com/mrama030/OMDB_API_Wrapper" />
+    <dependencies>
+      <group targetFramework=".NETStandard2.0">
+        <dependency id="Newtonsoft.Json" version="12.0.1" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="C:\Users\Mohamed\Documents\GitHub\OMDB_API_Wrapper\OMDB_API_Wrapper\OMDB_API_Wrapper\bin\Debug\netstandard2.0\OMDB_API_Wrapper.dll" target="lib\netstandard2.0\OMDB_API_Wrapper.dll" />
+  </files>
+</package>
