@@ -1,7 +1,5 @@
 # OMDB_API_Wrapper
 
-### Current Release: Version 1.1.2
-
 ### Description
 An easy-to-use API wrapper/client for the Open Movie Database / OMDB API, which can be used in any .NET project. Available as a DLL library and a NuGet package. This library focuses on being easy to understand, simple to use and offer full coverage of features offered by the OMDB API. Terminology used by this library is strongly associated to the official OMDB API documentation found online at http://www.omdbapi.com/
 
