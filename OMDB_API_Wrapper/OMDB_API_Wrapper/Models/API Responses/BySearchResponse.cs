@@ -6,16 +6,13 @@ namespace OMDB_API_Wrapper.Models.API_Responses
     /// <summary>
     /// JSON-deserialized object received in response to a BySearchRequest.
     /// </summary>
-    public class BySearchResponse
+    public class BySearchResponse : Response
     {
         [JsonProperty("Search")]
         public List<SearchResultItem> SearchResults;
 
         [JsonProperty("totalResults")]
         public uint TotalResults;
-
-        [JsonProperty("Response")]
-        public bool Response;
 
         public class SearchResultItem
         {

@@ -6,7 +6,7 @@ namespace OMDB_API_Wrapper.Models.API_Responses
     /// <summary>
     /// JSON-deserialized object received in response to a ByTitleRequest or ByIDRequest.
     /// </summary>
-    public class ByTitleResponse
+    public class ByTitleResponse : Response
     {
         [JsonProperty("Title")]
         public string Title;
@@ -94,9 +94,6 @@ namespace OMDB_API_Wrapper.Models.API_Responses
 
         [JsonProperty("Website")]
         public string Website;
-
-        [JsonProperty("Response")]
-        public bool Response;
 
         public class Rating
         {

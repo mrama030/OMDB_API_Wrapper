@@ -178,9 +178,20 @@ namespace OMDB_API_Wrapper
         public async Task<bool> IsAPIKeyValidAsync()
         {
             ByTitleRequest byTitleRequest = new ByTitleRequest("ghost in the shell", VideoType.Movie, 1995);
-            string parameters = GenerateByTitleRequestParameters(byTitleRequest);
-            HttpResponseMessage response = await client.GetAsync(parameters);
-            return response.IsSuccessStatusCode;
+            string requestParameters = GenerateByTitleRequestParameters(byTitleRequest);
+            HttpResponseMessage response = await client.GetAsync(requestParameters);
+
+            // Verify that HTTP status code is 200 (Success).
+            if (response.IsSuccessStatusCode)
+            {
+                string jsonContent = await response.Content.ReadAsStringAsync();
+                ByTitleResponse title = JsonConvert.DeserializeObject<ByTitleResponse>(jsonContent);
+
+                // Also verify the ByTitleResponse's Response attribute (called Success in this API wrapper).
+                return title.ResponseSuccess;
+            }
+
+            return false;
         }
 
         /// <summary>

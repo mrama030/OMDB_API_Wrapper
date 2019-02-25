@@ -2,10 +2,10 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <Platforms>AnyCPU;x64</Platforms>
-    <Version>1.1.2</Version>
+    <Version>1.1.3</Version>
     <Authors>Mohamed Ali Ramadan</Authors>
     <Company />
-    <Description>OMDB_API_Wrapper is a RESTful API wrapper for the Open Movie Database API (http://www.omdbapi.com/). This API wrapper focuses on being simple to use, efficient and respects the terminology used in the OMDB API documentation.</Description>
+    <Description>OMDB_API_Wrapper is an easy-to-use RESTful API wrapper/client for the Open Movie Database API (http://www.omdbapi.com/). This API wrapper focuses on being simple to use, efficient and respects the terminology used in the OMDB API documentation.</Description>
     <Copyright>Mohamed Ali Ramadan</Copyright>
     <PackageLicenseUrl>https://github.com/mrama030/OMDB_API_Wrapper/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/mrama030/OMDB_API_Wrapper</PackageProjectUrl>
@@ -15,7 +15,7 @@
     <Product>OMDB_API_Wrapper</Product>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageReleaseNotes>Added MIT License</PackageReleaseNotes>
+    <PackageReleaseNotes>Updated API Key validation/test methods to now check the Response attribute in addition to the HTTP status code (previously only checked HTTP status code). ByTitleResponse and BySearchResponse now inherit the newly added Response class.</PackageReleaseNotes>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DocumentationFile></DocumentationFile>
