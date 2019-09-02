@@ -6,12 +6,14 @@
 
 using System;
 using System.ComponentModel;
+using System.IO;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using OMDB_API_Wrapper;
 using OMDB_API_Wrapper.Models;
 using OMDB_API_Wrapper.Models.API_Requests;
 using OMDB_API_Wrapper.Models.API_Responses;
+using OMDB_API_Wrapper.Utils;
 
 namespace OMDB_API_Wrapper_Demo
 {
@@ -105,6 +107,18 @@ namespace OMDB_API_Wrapper_Demo
             // Print ByTitleResponse object's JSON attributes.
             Console.WriteLine("ByTitleResponse JSON attributes:");
             PrintObjectJsonStyle(byTitleResponseForIDRequest);
+
+            #endregion
+
+            #region Image Download DEMO
+
+            // Attempt to download the image and write to root of C drive.
+            ImageDownload imageDownload = await omdbClient.GetImageForByTitleResponseAsync(byTitleResponseForIDRequest);
+
+            if (imageDownload.DownloadSuccessful)
+            {
+                File.WriteAllBytes(@"C:\" + imageDownload.FileName, imageDownload.Data);
+            }
 
             #endregion
 

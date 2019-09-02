@@ -15,3 +15,4 @@ C:\Users\Mohamed\Documents\GitHub\OMDB_API_Wrapper\OMDB_API_Wrapper\OMDB_API_Wra
 C:\Users\Mohamed\Documents\GitHub\OMDB_API_Wrapper\OMDB_API_Wrapper\OMDB_API_Wrapper\obj\Debug\netstandard2.0\OMDB_API_Wrapper.AssemblyInfo.cs
 C:\Users\Mohamed\Documents\GitHub\OMDB_API_Wrapper\OMDB_API_Wrapper\OMDB_API_Wrapper\obj\Debug\netstandard2.0\OMDB_API_Wrapper.dll
 C:\Users\Mohamed\Documents\GitHub\OMDB_API_Wrapper\OMDB_API_Wrapper\OMDB_API_Wrapper\obj\Debug\netstandard2.0\OMDB_API_Wrapper.pdb
+C:\Users\Mohamed\Documents\GitHub\OMDB_API_Wrapper\OMDB_API_Wrapper\OMDB_API_Wrapper\obj\Debug\netstandard2.0\OMDB_API_Wrapper.csprojAssemblyReference.cache

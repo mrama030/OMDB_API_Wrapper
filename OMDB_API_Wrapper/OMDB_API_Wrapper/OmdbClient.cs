@@ -23,6 +23,7 @@ using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using OMDB_API_Wrapper.Models;
+using OMDB_API_Wrapper.Utils;
 using OMDB_API_Wrapper.Models.API_Responses;
 using OMDB_API_Wrapper.Models.API_Requests;
 
@@ -302,6 +303,16 @@ namespace OMDB_API_Wrapper
             return bySearchResponse;
         }
 
+        /// <summary>
+        /// Attempt to download the poster cover using the URI from the OMDB by-title response.
+        /// </summary>
+        /// <param name="byTitleResponse"></param>
+        /// <returns>An ImageDownload object which has a flag indicating is download was successful.</returns>
+        public async Task<ImageDownload> GetImageForByTitleResponseAsync(ByTitleResponse byTitleResponse)
+        {
+            return await ImageDownloader.DownloadImage(client, byTitleResponse.Poster_URI);
+        }
+
         #endregion
 
         #region Synchronous Public Methods
@@ -343,6 +354,16 @@ namespace OMDB_API_Wrapper
         public BySearchResponse BySearchRequestSync(BySearchRequest bySearchRequest)
         {
             return BySearchRequestAsync(bySearchRequest).GetAwaiter().GetResult();
+        }
+
+        /// <summary>
+        /// Attempt to download the poster cover using the URI from the OMDB by-title response (synchronously).
+        /// </summary>
+        /// <param name="byTitleResponse"></param>
+        /// <returns>An ImageDownload object which has a flag indicating is download was successful.</returns>
+        public ImageDownload GetImageForByTitleResponseSync(ByTitleResponse byTitleResponse)
+        {
+            return GetImageForByTitleResponseAsync(byTitleResponse).GetAwaiter().GetResult();
         }
 
         #endregion

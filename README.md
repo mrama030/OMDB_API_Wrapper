@@ -52,6 +52,21 @@ ByTitleResponse byTitleResponseAsync = await omdbClient.ByTitleRequestAsync(byTi
 ByTitleResponse byTitleResponseSync = omdbClient.ByTitleRequestSync(byTitleRequestBasic);
 ```
 
+#### ByTitleRequest / ByIdRequest Image Download (for Poster Cover Art)
+```cs
+// Asynchronous 
+ImageDownload imageDownloadAsync = await omdbClient.GetImageForByTitleResponseAsync(byTitleResponseAsync);
+
+// Synchronous 
+ImageDownload imageDownloadSync = await omdbClient.GetImageForByTitleResponseAsync(byTitleResponseSync);
+
+// Create image file using ImageDownload object.
+if (imageDownload.DownloadSuccessful)
+{
+	File.WriteAllBytes(@"C:\" + imageDownload.FileName, imageDownload.Data);
+}
+```
+
 #### ByIDRequest Creation
 ```cs
 // Short plot
